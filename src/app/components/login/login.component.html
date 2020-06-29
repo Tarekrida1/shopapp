@@ -1,0 +1,25 @@
+<div class="container">
+    <form #f="ngForm" (ngSubmit)="login(f)">
+        <div class="form-group">
+            <label for="exampleInputEmail1">Email address</label>
+            <input ngModel name="email" required email #email="ngModel" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+        </div>
+        <div class="alert alert-danger" role="alert" *ngIf="email.touched && email.errors?.required">
+            Email Is Required!
+        </div>
+        <div class="alert alert-danger" role="alert" *ngIf="email.touched && email.errors?.email">
+            Email Not Valid!
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">Password</label>
+            <input ngModel name="password" required minlength="6" #password="ngModel" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+        </div>
+        <div class="alert alert-danger" role="alert" *ngIf="password.touched && password.errors?.required">
+            password Is Required!
+        </div>
+        <div class="alert alert-danger" role="alert" *ngIf="password.touched && password.errors?.minlength">
+            Password length Should Be 6+
+        </div>
+        <button type="submit" class="btn btn-primary">Log In</button>
+    </form>
+</div>

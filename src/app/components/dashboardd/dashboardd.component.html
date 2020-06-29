@@ -1,0 +1,27 @@
+<div class="body">
+    <div class="row">
+        <div class="col-12 col-md-6 col-lg-3" *ngFor="let good of carts; index as i">
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="https://png.pngtree.com/element_origin_min_pic/16/11/29/fcec145c01ac506514234eb808315f5e.jpg" alt="">
+                <div class="card-body">
+
+                    <div class="form-group" style="display: inline-flex;">
+                        <label for="name"><h5>Name: </h5></label>
+                        <input class="form-control" style="margin-bottom: 0;" type="number" id="name" placeholder="Enter name" [(ngModel)]="carts.name">
+                    </div>
+                    <div class="form-group" style="display: inline-flex;">
+                        <label for="price"><h5>price: </h5></label>
+                        <input class="form-control" style="margin-bottom: 0;" type="number" id="price" placeholder="Enter price" [(ngModel)]="good.price">
+                    </div>
+                    <div class="form-group" style="display: inline-flex;">
+                        <label for="quantity"><h5>Quantity: </h5></label>
+                        <input class="form-control" style="margin-bottom: 0;" type="number" id="quantity" placeholder="Enter Quantity" [(ngModel)]="good.amount">
+                    </div>
+
+                    <button class="btn btn-primary" (click)="save(i)">Save</button>
+                    <button class="btn btn-danger" (click)="delete(i)">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

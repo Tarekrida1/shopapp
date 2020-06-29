@@ -1,0 +1,21 @@
+<div class="body">
+    <div class="row">
+        <div class="col-12 col-md-6 col-lg-3" *ngFor="let good of cart; index as i">
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="https://png.pngtree.com/element_origin_min_pic/16/11/29/fcec145c01ac506514234eb808315f5e.jpg" alt="">
+                <div class="card-body">
+                    <h5 class="card-title">Name: {{ good.name | titlecase }}</h5>
+                    <h5 class="card-title">Price: {{good.price | currency}}</h5>
+
+                    <div class="form-group" style="display: inline-flex;">
+                        <label for="quantity"><h5>Quantity: </h5></label>
+                        <input class="form-control" style="margin-bottom: 0;" type="number" id="quantity" placeholder="Enter Quantity" [(ngModel)]="good.amount">
+                    </div>
+                    <h5 class="card-title">Total: {{ good.price * good.amount | currency }}</h5>
+                    <button class="btn btn-primary" (click)="save(i)">Save</button>
+                    <button class="btn btn-danger" (click)="delete(i)">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
